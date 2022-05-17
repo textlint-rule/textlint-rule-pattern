@@ -1,0 +1,60 @@
+{
+  "name": "@textlint-rule/textlint-rule-pattern",
+  "version": "1.0.0",
+  "description": "A textlint rule that checks by RegExp patterns.",
+  "keywords": [
+    "textlintrule"
+  ],
+  "homepage": "https://github.com/textlint-rule/textlint-rule-pattern",
+  "bugs": {
+    "url": "https://github.com/textlint-rule/textlint-rule-pattern/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/textlint-rule/textlint-rule-pattern.git"
+  },
+  "license": "MIT",
+  "author": "azu",
+  "main": "lib/textlint-rule-pattern.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "bin/",
+    "lib/",
+    "src/"
+  ],
+  "scripts": {
+    "build": "textlint-scripts build",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
+    "prepare": "git config --local core.hooksPath .githooks",
+    "prepublishOnly": "npm run build",
+    "test": "textlint-scripts test",
+    "watch": "textlint-scripts build --watch"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": false,
+    "tabWidth": 4,
+    "trailingComma": "none"
+  },
+  "devDependencies": {
+    "@textlint/types": "^12.1.1",
+    "@types/node": "^17.0.34",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2",
+    "textlint-scripts": "^12.1.1",
+    "textlint-tester": "^12.1.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
