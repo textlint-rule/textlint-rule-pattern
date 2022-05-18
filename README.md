@@ -6,7 +6,7 @@ A textlint rule that checks by RegExp patterns.
 
 - Support User Defined Patterns
 - Support RegExp patterns
-- Support Replacement
+- Support Replacement texts
 
 ## Install
 
