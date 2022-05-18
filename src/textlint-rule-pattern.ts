@@ -66,14 +66,6 @@ const report: TextlintRuleReporter<Options> = (context, options) => {
             if (isCodeNode && !pattern.forceCode) {
                 continue;
             }
-            if (isCodeNode) {
-                console.log({
-                    type: node.type,
-                    pattern,
-                    isCodeNode,
-                    text
-                });
-            }
             const results = matchPatterns(text, [pattern.pattern]);
             for (const result of results) {
                 const index = result.startIndex || 0;
