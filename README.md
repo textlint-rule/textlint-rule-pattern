@@ -106,18 +106,18 @@ export type Pattern = {
 This textlint rule use RegExp-like string for option value.
 :memo: `g`(global) flag and `u`(unicode) is added by default.
 
-| Input        | Ouput   | Note                                       |
-|--------------|---------|--------------------------------------------|
-| `"str"`      | `/str/gu` | convert string to regexp with global       |
-| `"/str/"`    | `/str/gu` |                                            |
-| `"/str/g"`   | `/str/gu` | Duplicated `g` is just ignored             |
-| `"/str/i"`   | `/str/igu` |                                            |
-| `"/str/u"`   | `/str/ug` |                                            |
-| `"/str/m"`   | `/str/mgu` |                                            |
-| `"/str/y"`   | `/str/ygu` |                                            |
-| ---          | ---     | ---                                        |
-| `"/\\d+/"`   | `/\d+/gu` | You should escape meta character like `\d` |
-| `"/(\\d+)/"` | `/\d+/gu` | You can use capture                        |
+| Input        | Ouput   | Note                                               |
+|--------------|---------|----------------------------------------------------|
+| `"str"`      | `/str/gu` | convert string to regexp with global               |
+| `"/str/"`    | `/str/gu` |                                                    |
+| `"/str/g"`   | `/str/gu` | Duplicated `g` is just ignored                     |
+| `"/str/i"`   | `/str/igu` |                                                    |
+| `"/str/u"`   | `/str/ug` |                                                    |
+| `"/str/m"`   | `/str/mgu` |                                                    |
+| `"/str/y"`   | `/str/ygu` |                                                    |
+| ---          | ---     | ---                                                |
+| `"/\\d+/"`   | `/\d+/gu` | You should escape meta character like `\d`         |
+| `"/(\\d+)/"` | `/\d+/gu` | You can use capture. replace `$1` with the capture |
 
 For more information, please see [textlint/regexp-string-matcher README](https://github.com/textlint/regexp-string-matcher#regexp-like-string).
 
