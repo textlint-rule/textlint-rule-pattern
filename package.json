@@ -56,5 +56,9 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "@textlint/regexp-string-matcher": "^2.0.1",
+    "textlint-rule-helper": "^2.2.1"
   }
 }
