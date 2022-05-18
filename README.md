@@ -40,12 +40,6 @@ Via `.textlintrc`(Recommended)
 }
 ```
 
-Via CLI
-
-```
-textlint --rule @textlint-rule/pattern README.md
-```
-
 ## Options
 
 - **patterns**: an array of pattern
