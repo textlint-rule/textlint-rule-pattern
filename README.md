@@ -123,6 +123,8 @@ For more information, please see [textlint/regexp-string-matcher README](https:/
 
 ### Examples
 
+### Match by RegExp
+
 If you want to found `TODO:` text, you can write following:
 
 ```json
@@ -139,6 +141,8 @@ If you want to found `TODO:` text, you can write following:
     }
 }
 ```
+
+### Replace the match
 
 If you want to replace `YYYY/DD/MM` to `YYYY-DD-MM` format, you can write following:
 
@@ -161,6 +165,8 @@ e.g. `2000/01/01` will be `2000-01-01` by `textlint --fix`.
     }
 }
 ```
+
+### Check code texts
 
 If you want to check text in a CodeBlock, you need to enable `forceCode` flag. 
 
