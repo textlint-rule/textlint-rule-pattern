@@ -194,7 +194,7 @@ See [Releases page](https://github.com/textlint-rule/textlint-rule-pattern/relea
 
 Install devDependencies and Run `npm test`:
 
-    npm i -d && npm test
+    npm test
 
 ## Contributing
 
