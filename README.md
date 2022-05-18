@@ -44,6 +44,18 @@ Via `.textlintrc`(Recommended)
 
 - **patterns**: an array of pattern object
 
+```json5
+{
+    "rules": {
+        "@textlint-rule/pattern": {
+          "patterns": [
+            /* Your rules is here! */
+          ]
+        }
+    }
+}
+```
+
 ### Pattern
 
 The pattern object has the following properties.
