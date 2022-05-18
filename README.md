@@ -83,16 +83,22 @@ export type Pattern = {
      * You can use RegExp-like string
      * https://github.com/textlint/regexp-string-matcher#regexp-like-string
      */
-    allows?: string[]
+    allows?: string[];
     /**
      * An array for excludes node type.
      * If the text is in the node type, suppress the error.
-     * For example, if you want to ignore the text in block quote and link
      * https://github.com/textlint/textlint/blob/master/docs/txtnode.md#type
+     * For example, if you want to ignore the text in block quote and link
      * "allowNodeTypes": ["Link", "BlockQuote"]
      */
     allowNodeTypes?: string[];
-}
+
+    /**
+     * This rule ignore Code and CodeBlock by default.
+     * If you want to check the code, please put this true
+     */
+    forceCode?: boolean;
+};
 ```
 
 ### RegExp-like String
