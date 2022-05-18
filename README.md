@@ -190,6 +190,13 @@ If you want to check text in a CodeBlock, you need to enable `forceCode` flag.
 
 See [Releases page](https://github.com/textlint-rule/textlint-rule-pattern/releases).
 
+## Related
+
+- [textlint-rule-prh](https://github.com/textlint-rule/textlint-rule-prh)
+  - textlint rule for [proofreading-helper](https://github.com/prh/prh)
+- [@textlint-ja/textlint-rule-morpheme-match](https://github.com/textlint-ja/textlint-rule-morpheme-match)
+  - textlint rule based on tokenized text(It is for japanesse)
+
 ## Running tests
 
 Install devDependencies and Run `npm test`:
