@@ -42,7 +42,7 @@ Via `.textlintrc`(Recommended)
 
 ## Options
 
-- **patterns**: an array of pattern
+- **patterns**: an array of pattern object
 
 ### Pattern
 
