@@ -56,7 +56,7 @@ const replace = (text: string, captures: string[]) => {
     });
 };
 const report: TextlintRuleReporter<Options> = (context, options) => {
-    const { Syntax, report, RuleError, fixer, getSource } = context;
+    const { Syntax, report, RuleError, fixer, getSource, locator } = context;
     const patterns = options?.patterns ?? [];
     const helper = new RuleHelper(context);
     const reportIfError = (node: TxtNode) => {
@@ -83,7 +83,7 @@ const report: TextlintRuleReporter<Options> = (context, options) => {
                     report(
                         node,
                         new RuleError(pattern.message, {
-                            index: index,
+                            padding: locator.range([index, index + match.length]),
                             fix: fixer.replaceTextRange([index, index + match.length], replaceText)
                         })
                     );
@@ -91,7 +91,7 @@ const report: TextlintRuleReporter<Options> = (context, options) => {
                     report(
                         node,
                         new RuleError(pattern.message, {
-                            index: index
+                            padding: locator.range([index, index + match.length])
                         })
                     );
                 }
