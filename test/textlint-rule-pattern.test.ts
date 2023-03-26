@@ -51,7 +51,7 @@ tester.run("textlint-rule-pattern", rule, {
             errors: [
                 {
                     message: "No todo",
-                    index: 0
+                    range: [0, 5]
                 }
             ]
         },
@@ -109,15 +109,15 @@ Next is Code Block.
             errors: [
                 {
                     message: "Must to use YYYY-MM-DD instead of YYYY/MM/DD",
-                    index: 2
+                    range: [2, 12]
                 },
                 {
                     message: "Must to use YYYY-MM-DD instead of YYYY/MM/DD",
-                    index: 15
+                    range: [15, 25]
                 },
                 {
                     message: "Must to use YYYY-MM-DD instead of YYYY/MM/DD",
-                    index: 28
+                    range: [28, 38]
                 }
             ]
         }
