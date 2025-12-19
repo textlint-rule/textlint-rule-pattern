@@ -29,7 +29,7 @@
     "build": "textlint-scripts build",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepare": "git config --local core.hooksPath .githooks",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "pnpm run build",
     "test": "textlint-scripts test",
     "watch": "textlint-scripts build --watch"
   },
@@ -45,6 +45,7 @@
     "trailingComma": "none"
   },
   "devDependencies": {
+    "@textlint/ast-node-types": "^13.3.2",
     "@textlint/types": "^13.3.2",
     "@types/node": "^18.15.10",
     "lint-staged": "^13.2.0",
@@ -60,5 +61,6 @@
   "dependencies": {
     "@textlint/regexp-string-matcher": "^2.0.2",
     "textlint-rule-helper": "^2.3.0"
-  }
+  },
+  "packageManager": "pnpm@10.26.0+sha512.3b3f6c725ebe712506c0ab1ad4133cf86b1f4b687effce62a9b38b4d72e3954242e643190fc51fa1642949c735f403debd44f5cb0edd657abe63a8b6a7e1e402"
 }
