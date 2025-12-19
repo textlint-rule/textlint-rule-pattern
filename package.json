@@ -1,6 +1,6 @@
 {
   "name": "@textlint-rule/textlint-rule-pattern",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A textlint rule that checks by RegExp patterns.",
   "keywords": [
     "textlintrule"
