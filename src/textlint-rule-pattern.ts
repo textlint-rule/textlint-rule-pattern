@@ -44,15 +44,20 @@ export type Pattern = {
 export type Options = {
     patterns: Pattern[];
 };
-const replace = (text: string, captures: string[]) => {
+const replace = (text: string, captures: (string | null | undefined)[]) => {
     return text.replace(/\$([1-9])/g, (match, indexStr) => {
         const index = Number(indexStr);
         if (Number.isNaN(index)) {
             throw new Error(`Something wrong. ${indexStr} is NaN. `);
         }
-        // if does not match capture, return original text
         // captures is align with [$1, $2, $3 ....]
-        return captures[index - 1] ?? match;
+        // if the capture group does not exist in the pattern, return original text
+        if (index > captures.length) {
+            return match;
+        }
+        // if the capture group exists but does not participate in the match, replace it with empty string
+        // It is the same behavior with String.prototype.replace
+        return captures[index - 1] ?? "";
     });
 };
 const report: TextlintRuleReporter<Options> = (context, options) => {
@@ -66,6 +71,10 @@ const report: TextlintRuleReporter<Options> = (context, options) => {
             if (isCodeNode && !pattern.forceCode) {
                 continue;
             }
+            const allowNodeTypes = pattern.allowNodeTypes ?? [];
+            if (helper.isChildNode(node, allowNodeTypes)) {
+                continue; // suppress the errors of this pattern, and check the next pattern
+            }
             const results = matchPatterns(text, [pattern.pattern]);
             for (const result of results) {
                 const index = result.startIndex || 0;
@@ -73,10 +82,6 @@ const report: TextlintRuleReporter<Options> = (context, options) => {
                 const allowedResults = pattern.allows ? matchPatterns(match, pattern.allows) : [];
                 if (allowedResults.length > 0) {
                     continue; // suppress the error
-                }
-                const allowNodeTypes = pattern.allowNodeTypes ?? [];
-                if (helper.isChildNode(node, allowNodeTypes)) {
-                    return; // suppress the error
                 }
                 if (pattern.replace) {
                     const replaceText = replace(pattern.replace, result.captures);
