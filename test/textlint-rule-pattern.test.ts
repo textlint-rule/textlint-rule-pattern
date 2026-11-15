@@ -120,6 +120,39 @@ Next is Code Block.
                     range: [28, 38]
                 }
             ]
+        },
+        {
+            text: "[TODO FIXME](https://example.com)\n\nTODO FIXME",
+            options: {
+                patterns: [
+                    { message: "No TODO", pattern: "/TODO/", allowNodeTypes: ["Link"] },
+                    { message: "No FIXME", pattern: "/FIXME/" }
+                ]
+            },
+            errors: [
+                { message: "No FIXME", line: 1, column: 7 },
+                { message: "No TODO", line: 3, column: 1 },
+                { message: "No FIXME", line: 3, column: 6 }
+            ]
+        },
+        {
+            text: "colour and colours",
+            output: "color and colors",
+            options: {
+                patterns: [{ message: "Use color", pattern: "/colour(s)?/", replace: "color$1" }]
+            },
+            errors: [
+                { message: "Use color", range: [0, 6] },
+                { message: "Use color", range: [11, 18] }
+            ]
+        },
+        {
+            text: "colour",
+            output: "color$2",
+            options: {
+                patterns: [{ message: "Use color", pattern: "/colour(s)?/", replace: "color$1$2" }]
+            },
+            errors: [{ message: "Use color", range: [0, 6] }]
         }
     ]
 });
